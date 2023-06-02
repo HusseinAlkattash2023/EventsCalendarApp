@@ -3,7 +3,7 @@
         <i class="absolute top-4 material-icons text-4xl mb-4 bg-red-600 text-white py-1 px-3 rounded">{{ props.icon }}</i>
         <div class="flex flex-col items-center mt-14">
             <h2 class="xl:text-3xl text-2xl md:text-3xl lg:text-2xl font-bold">{{ props.title }}</h2>
-            <NuxtLink to="/" class="mt-4 hover:underline">{{ props.body }}</NuxtLink>
+            <NuxtLink to="" class="mt-4 hover:underline">{{ props.body }}</NuxtLink>
         </div>
     </div>
 </template>
