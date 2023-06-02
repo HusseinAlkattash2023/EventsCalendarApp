@@ -16,13 +16,18 @@
     </div>
     <div class="mt-20 flex items-center justify-center mb-10">
         <div v-for="card in cards" :key="card">
-            <Card :icon="card.icon" :title="card.title" :body="card.body"/>
+            <Card @click="card.state && changeRoute()" :icon="card.icon" :title="card.title" :body="card.body"/>
         </div>
     </div>
     </main>
 </template>
 
 <script setup>
+const router = useRouter();
+
+const changeRoute = ()=>{
+    router.push({path:'/faq'})
+}
 const cards = ref([
     {
         icon:"location_on",
@@ -37,6 +42,7 @@ const cards = ref([
     {
         icon:"forum",
         title:"FAQ",
+        state:true
     },
 ])
 </script>
@@ -63,18 +69,18 @@ const cards = ref([
   top: 20px;
 }
 .btn button{
-    width: 270px;
+    width: 290px;
     transition: all 0.5s ease;
 }
 @media only screen and (max-width: 1025px){
     .btn button{
-    width: 230px;
+    width: 240px;
 }
 }
 
 @media only screen and (max-width: 768px){
     .btn button{
-    width: 180px;
+    width: 190px;
 }
 }
 
