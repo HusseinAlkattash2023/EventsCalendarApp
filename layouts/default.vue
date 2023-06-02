@@ -50,13 +50,13 @@
   <!-- ========================= -->
 
   <!-- pages contain -->
-  <div class="container mt-20 mx-auto p-4">
+  <div class="mt-20">
     <slot />
   </div>
   <!-- ==================== -->
 
   <!-- footer start -->
-  <footer>footer</footer>
+  <footer class="mt-auto">footer</footer>
   <!-- ====================== -->
 </template>
 
