@@ -14,10 +14,15 @@
             </button>
         </div>
     </div>
-    <div class="mt-20 flex items-center justify-center mb-10">
+    <div class="mt-20 lg:flex-row flex-col flex items-center justify-center mb-10">
         <div v-for="card in cards" :key="card">
             <Card @click="card.state && changeRoute()" :icon="card.icon" :title="card.title" :body="card.body"/>
         </div>
+    </div>
+    <div class="text-center mt-14">
+        <button class="bg-red-600 text-white w-72 text-2xl py-3 rounded font-bold hover:shadow-2xl hover:bg-red-700">
+            <NuxtLink>Back to DCadA</NuxtLink>
+        </button>
     </div>
     </main>
 </template>
