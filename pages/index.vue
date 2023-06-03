@@ -5,11 +5,11 @@
             <h1 class=" font-bold uppercase text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">{{ $t('event_calendar') }}</h1>
             <h2 class="capitalize text-white mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold">{{ $t('the_club') }}</h2>
         </div>
-        <div class="flex btn mt-0 md:mt-10 z-10">
-            <button class="hover:shadow-2xl hover:bg-red-700 bg-red-600 mx-2 md:mx-4 md:py-4 py-3 rounded italic">
+        <div class="flex sm:flex-row flex-col btn mt-0 md:mt-10 z-10">
+            <button class="hover:shadow-2xl hover:bg-red-700 bg-red-600 mx-2 sm:my-0 my-2 md:mx-4 md:py-4 py-3 rounded italic">
                 <NuxtLink to="/events" class="lg:text-3xl md:text-2xl sm:text-xl text-white font-bold">Events</NuxtLink>
             </button>
-            <button class="hover:shadow-2xl hover:bg-red-700 bg-red-600 mx-2 md:mx-4 md:py-4 py-3 rounded italic">
+            <button class="hover:shadow-2xl hover:bg-red-700 bg-red-600 mx-2 my-2 md:mx-4 md:py-4 py-3 rounded italic">
                 <NuxtLink to="courses" class="lg:text-3xl md:text-2xl sm:text-xl text-white font-bold">{{ $t('courses_camps') }}</NuxtLink>
             </button>
         </div>
@@ -91,8 +91,9 @@ const cards = ref([
 
 @media only screen and (max-width: 640px){
     .btn button{
-    width: 150px;
+    width: 200px;
 }
+
 }
 @media only screen and (max-width: 460px){
     h1{

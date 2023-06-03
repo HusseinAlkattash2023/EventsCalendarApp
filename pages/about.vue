@@ -1,5 +1,5 @@
 <template>
-    <main class="h-screen  text-center">
+    <main class="h-screen  text-center mt-28">
       <h1>{{ $t("welcome") }}</h1>
     </main>
   </template>

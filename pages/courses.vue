@@ -1,5 +1,5 @@
 <template>
-    <div class="h-screen  text-center">
+    <div class="h-screen  text-center mt-28">
         courses and camps
     </div>
 </template>
