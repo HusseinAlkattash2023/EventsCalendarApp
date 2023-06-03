@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="h-screen  text-center">
         Register page
     </div>
 </template>

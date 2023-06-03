@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="h-screen  text-center">
         events
     </div>
 </template>

@@ -1,13 +1,13 @@
 <template>
-    <div>
-        About us
-    </div>
-</template>
+    <main class="h-screen  text-center">
+        about
+    </main>
+  </template>
 
 <script setup>
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
