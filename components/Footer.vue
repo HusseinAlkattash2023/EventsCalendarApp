@@ -7,9 +7,9 @@
             <div class="flex flex-col items-center justify-center mt-24">
             <span class="text-white font-bold text-4xl">#DCadA</span>
             <div class="mt-10 text-white">
-                <NuxtLink class="hover:underline" to="/">Imprint</NuxtLink> |
-                <NuxtLink class="hover:underline" to="/">Data protection</NuxtLink> |
-                <NuxtLink class="hover:underline" to="/">Terms of Use</NuxtLink>
+                <NuxtLink class="hover:underline" to="/">{{ $t('imprint') }}</NuxtLink> |
+                <NuxtLink class="hover:underline" to="/">{{ $t('data_protection') }}</NuxtLink> |
+                <NuxtLink class="hover:underline" to="/">{{ $t('terms_of_use') }}</NuxtLink>
             </div>
             </div>
         </div>

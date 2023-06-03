@@ -2,26 +2,26 @@
     <main>
     <div class="home flex flex-col items-center justify-center">
         <div class="z-10 mb-10 flex flex-col items-center justify-center">
-            <h1 class=" font-bold uppercase text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">event calendar</h1>
-            <h2 class="capitalize text-white mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold">The club on the Alster</h2>
+            <h1 class=" font-bold uppercase text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white">{{ $t('event_calendar') }}</h1>
+            <h2 class="capitalize text-white mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold">{{ $t('the_club') }}</h2>
         </div>
         <div class="flex btn mt-0 md:mt-10 z-10">
             <button class="hover:shadow-2xl hover:bg-red-700 bg-red-600 mx-2 md:mx-4 md:py-4 py-3 rounded italic">
                 <NuxtLink to="/events" class="lg:text-3xl md:text-2xl sm:text-xl text-white font-bold">Events</NuxtLink>
             </button>
             <button class="hover:shadow-2xl hover:bg-red-700 bg-red-600 mx-2 md:mx-4 md:py-4 py-3 rounded italic">
-                <NuxtLink to="courses" class="lg:text-3xl md:text-2xl sm:text-xl text-white font-bold">Courses & Camps</NuxtLink>
+                <NuxtLink to="courses" class="lg:text-3xl md:text-2xl sm:text-xl text-white font-bold">{{ $t('courses_camps') }}</NuxtLink>
             </button>
         </div>
     </div>
     <div class="mt-20 lg:flex-row flex-col flex items-center justify-center mb-10">
         <div v-for="card in cards" :key="card">
-            <Card @click="card.state && changeRoute()" :icon="card.icon" :title="card.title" :body="card.body"/>
+            <Card @click="card.state && changeRoute()" :icon="card.icon" :title=$t(card.title) :body="card.body"/>
         </div>
     </div>
     <div class="text-center mt-14 mb-28">
         <button class="bg-red-600 text-white w-72 text-2xl py-3 rounded font-bold hover:shadow-2xl hover:bg-red-700">
-            <NuxtLink to="https://www.dcada.de/">Back to DCadA</NuxtLink>
+            <NuxtLink to="https://www.dcada.de/">{{ $t('back_to') }} DCadA</NuxtLink>
         </button>
     </div>
     </main>
@@ -36,17 +36,17 @@ const changeRoute = ()=>{
 const cards = ref([
     {
         icon:"location_on",
-        title:"The club on the Alster",
+        title:"the_club",
         body:"Hallerstraße 91, 20149 Hamburg"
     },
     {
         icon:"mail",
-        title:"E-Mail",
+        title:"e-mail",
         body:"eventkalender@dcada.de"
     },
     {
         icon:"forum",
-        title:"FAQ",
+        title:"faq",
         state:true
     },
 ])

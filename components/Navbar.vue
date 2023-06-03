@@ -14,19 +14,38 @@
         />
       </NuxtLink>
       <div class="flex lg:order-2">
+        <!-- for translation -->
+        <select v-model="language" class="mr-2 rounded">
+          <option
+            v-for="item in locales"
+            :key="typeof item === 'object' ? item.code : item"
+            :value="typeof item === 'object' ? item.code : item"
+          >
+            {{ typeof item === "object" ? item.name : item }}
+          </option>
+        </select>
+        <!-- ====== -->
+
+        <!-- login / register -->
         <button
           type="button"
           class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 lg:mr-0"
         >
           <NuxtLink to="login" class="text-lg font-light"
-            >Login/Register</NuxtLink
+            >{{ $t('login') }}/{{ $t('register') }}</NuxtLink
           >
         </button>
+        <!-- ================= -->
+
+        <!-- open navbar / close navbar -->
         <button @click="isOpen = !isOpen" class="block lg:hidden">
           <i v-if="!isOpen" class="material-icons text-3xl">menu</i>
           <i v-if="isOpen" class="material-icons text-3xl">close</i>
         </button>
+        <!-- ============== -->
       </div>
+
+      <!-- nav -->
       <div
         :class="isOpen ? 'block' : 'hidden'"
         class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
@@ -46,7 +65,7 @@
               active-class="text-white bg-red-600"
               class="block lg:text-sm lg:font-medium hover:bg-red-600 hover:text-white uppercase lg:p-2 py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 lg:hover:bg-red-600 lg:hover:text-white lg:p-0"
               aria-current="page"
-              >{{ item.display }}</NuxtLink
+              >{{ $t(item.display) }}</NuxtLink
             >
           </li>
         </ul>
@@ -57,34 +76,43 @@
 </template>
 
 <script setup>
+let isOpen = ref(false);
+
 const nav_links = ref([
   {
     path: "/",
-    display: "Home",
+    display:'home'
   },
   {
     path: "/events",
-    display: "Events",
+    display: "events",
   },
   {
     path: "/courses",
-    display: "Courses and camps",
+    display: "courses_and_camps",
   },
   {
     path: "/coupons",
-    display: "Coupons",
+    display: "coupons",
   },
   {
     path: "/about",
-    display: "About Us",
+    display: "about",
   },
   {
     path: "/faq",
-    display: "FAQ",
+    display: "faq",
   },
 ]);
 
-let isOpen = ref(false);
+const { locales, locale, setLocale } = useI18n();
+
+const language = computed({
+  get: () => locale.value,
+  set: (value) => {
+    setLocale(value);
+  },
+});
 </script>
 
 <style scoped></style>

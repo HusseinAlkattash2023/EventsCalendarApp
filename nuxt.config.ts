@@ -3,6 +3,27 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss','@nuxtjs/i18n',
   ],
+  i18n:{
+    /* module options */
+    lazy: true,
+    langDir: "locales",
+    strategy: "prefix_except_default",
+    locales: [
+      {
+        code: "en-US",
+        iso: "en-US",
+        name: "Eg",
+        file: "en-US.json",
+      },
+      {
+        code: "gr-GR",
+        iso: "gr-GR",
+        name: "Gr",
+        file: "gr-GR.json",
+      },
+    ],
+    defaultLocale: "en-US",
+  },
     app: {
         head: {
           title: "EventsCalendarApp",
