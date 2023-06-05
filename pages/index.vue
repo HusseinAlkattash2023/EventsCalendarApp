@@ -6,7 +6,7 @@
             <h2 class="capitalize text-white mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold">{{ $t('the_club') }}</h2>
         </div>
         <div class="flex sm:flex-row flex-col btn mt-0 md:mt-10 z-10">
-            <button class="hover:shadow-2xl hover:bg-red-700 bg-red-600 mx-2 sm:my-0 my-2 md:mx-4 md:py-4 py-3 rounded italic">
+            <button class="hover:shadow-2xl hover:bg-red-700 bg-red-600 mx-2 my-2 md:mx-4 md:py-4 py-3 rounded italic">
                 <NuxtLink to="/events" class="lg:text-3xl md:text-2xl sm:text-xl text-white font-bold">Events</NuxtLink>
             </button>
             <button class="hover:shadow-2xl hover:bg-red-700 bg-red-600 mx-2 my-2 md:mx-4 md:py-4 py-3 rounded italic">
