@@ -10,12 +10,12 @@
         <img
           src="@/assets/images/logo.png"
           class="h-14 mr-3"
-          alt="Flowbite Logo"
+          alt="Logo"
         />
       </NuxtLink>
       <div class="flex lg:order-2">
         <!-- for translation -->
-        <select v-model="language" class="mr-2 rounded">
+        <select v-model="language" class="mr-2 rounded  text-md">
           <option
             v-for="item in locales"
             :key="typeof item === 'object' ? item.code : item"
@@ -29,9 +29,9 @@
         <!-- login / register -->
         <button
           type="button"
-          class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 lg:mr-0"
+          class="text-white sm:block hidden bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 lg:mr-0"
         >
-          <NuxtLink to="login" class="text-lg font-light"
+          <NuxtLink to="login" class="text-md font-bold"
             >{{ $t('login') }}/{{ $t('register') }}</NuxtLink
           >
         </button>
@@ -48,7 +48,7 @@
       <!-- nav -->
       <div
         :class="isOpen ? 'block' : 'hidden'"
-        class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
+        class="flex flex-col justify-center lg:justify-between w-full lg:flex flex-col justify-center lg:w-auto lg:order-1"
         id="navbar-sticky"
       >
         <ul
@@ -69,6 +69,15 @@
             >
           </li>
         </ul>
+          <!-- login / register -->
+          <button
+          type="button"
+          class="text-white flex items-center justify-center mt-5  sm:hidden block bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 lg:mr-0"
+        >
+          <NuxtLink to="login" class="text-lg font-light"
+            >{{ $t('login') }}/{{ $t('register') }}</NuxtLink
+          >
+        </button>
       </div>
     </div>
   </nav>
@@ -113,6 +122,7 @@ const language = computed({
     setLocale(value);
   },
 });
+
 </script>
 
 <style scoped></style>
