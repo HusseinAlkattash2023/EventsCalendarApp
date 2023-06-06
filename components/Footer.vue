@@ -4,7 +4,7 @@
             <div class="flex items-center justify-center">
                 <img src="@/assets/images/logo.png" alt="" class="absolute w-20 sm:w-28 text-center"/>
             </div>
-            <div class="flex flex-col items-center justify-center mt-24">
+            <div class="flex flex-col items-center justify-center relative top-28">
             <span class="text-white font-bold text-4xl">#DCadA</span>
             <div class="mt-10 text-white">
                 <NuxtLink class="hover:underline" to="/">{{ $t('imprint') }}</NuxtLink> |
