@@ -1,6 +1,6 @@
 <template>
     <div class="h-screen  text-center mt-28">
-        Register page
+        {{ $t("register") }}
     </div>
 </template>
 
