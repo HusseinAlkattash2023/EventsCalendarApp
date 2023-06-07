@@ -4,27 +4,16 @@
     class="shadow-lg bg-white fixed w-full z-20 top-0 left-0 border-b border-gray-200"
   >
     <div
-      class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      class="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto p-4"
     >
-      <NuxtLink to="/" class="flex items-center">
+      <NuxtLink to="/" class="flex items-center 2xl:relative 2xl:right-32">
         <img
           src="@/assets/images/logo.png"
           class="h-14 mr-3"
           alt="Logo"
         />
       </NuxtLink>
-      <div class="flex lg:order-2">
-        <!-- for translation -->
-        <select v-model="language" class="mr-2 rounded  text-md">
-          <option
-            v-for="item in locales"
-            :key="typeof item === 'object' ? item.code : item"
-            :value="typeof item === 'object' ? item.code : item"
-          >
-            {{ typeof item === "object" ? item.name : item }}
-          </option>
-        </select>
-        <!-- ====== -->
+      <div class="flex lg:order-2 2xl:relative 2xl:left-32">
 
         <!-- login / register -->
         <button
@@ -36,6 +25,18 @@
           >
         </button>
         <!-- ================= -->
+
+        <!-- for translation -->
+        <select v-model="language" class="ml-2 rounded  text-md">
+          <option
+            v-for="item in locales"
+            :key="typeof item === 'object' ? item.code : item"
+            :value="typeof item === 'object' ? item.code : item"
+          >
+            {{ typeof item === "object" ? `<img src="@/assets/images/germany.png" class="w-20"/>` : item }}
+          </option>
+        </select>
+        <!-- ====== -->
 
         <!-- open navbar / close navbar -->
         <button @click="isOpen = !isOpen" class="block lg:hidden">
@@ -52,7 +53,7 @@
         id="navbar-sticky"
       >
         <ul
-          class="flex flex-col items-center p-4 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 lg:flex-row lg:space-x-8 lg:mt-0 lg:border-0 lg:bg-white"
+          class="flex flex-col items-center p-4 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 lg:flex-row lg:space-x-2 lg:mt-0 lg:border-0 lg:bg-white"
         >
           <li
             class="my-3 lg:my-0"
@@ -125,4 +126,9 @@ const language = computed({
 
 </script>
 
-<style scoped></style>
+<style scoped>
+@media only screen and (max-width: 1900px){
+  .logo{
+  }
+}
+</style>

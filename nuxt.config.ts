@@ -18,7 +18,7 @@ export default defineNuxtConfig({
       {
         code: "gr-GR",
         iso: "gr-GR",
-        name: "Gr",
+        name:"Gr",
         file: "gr-GR.json",
       },
     ],

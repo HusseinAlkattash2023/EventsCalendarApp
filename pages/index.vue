@@ -69,7 +69,8 @@ const cards = ref([
   display: block;
   background: black;
   width: 100%;
-  height: 100%;
+  height: 90vh;
+  margin-top:60px;
   opacity: 0.5;
   top: 20px;
 }
