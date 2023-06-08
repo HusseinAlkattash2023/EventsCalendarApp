@@ -1,8 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss','@nuxtjs/i18n',
+    '@nuxtjs/tailwindcss','@nuxtjs/i18n', "@vuestic/nuxt"
   ],
+
   i18n:{
     /* module options */
     lazy: true,
