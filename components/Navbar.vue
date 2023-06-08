@@ -96,6 +96,7 @@
               >
                 <li v-for="(item, index) in settings" :key="index">
                   <NuxtLink
+                  active-class="text-white bg-red-600"
                   @click="isOpenDropdown = !isOpenDropdown"
                     :to="item.path"
                     :class="index !== 0 ? 'border-t' : 'border-0'"
