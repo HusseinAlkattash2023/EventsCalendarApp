@@ -6,11 +6,11 @@
     striped
   >
     <template #headerAppend>
-      <tr class="table-crud__slot">
+      <tr class="table-crud__slot border">
         <th
           v-for="(key, index) in Object.keys(createdItem)"
           :key="index"
-          class="p-1"
+          class="p-1 border"
         >
           <va-input
             v-if="index === 0 || index === 1"
@@ -34,6 +34,13 @@
             v-if="index === 5"
             v-model="createdItem[key]"
             :options="['Sporthall1', 'Sporthall2']"
+          />
+          <va-switch
+            v-if="index === 6 || index === 7"
+            size="small"
+            class="text-sm w-full"
+            v-model="createdItem[key]"
+            color="danger"
           />
         </th>
         <th class="p-1">
@@ -85,6 +92,8 @@ const defaultItem = {
   end_date: new Date().toISOString().slice(0, 10),
   category: "",
   place: "",
+  is_important:true,
+  is_public:true
 };
 
 export default defineComponent({
@@ -97,6 +106,8 @@ export default defineComponent({
         end_date: new Date().toISOString().slice(0, 10),
         category: "Hockey",
         place: "Sporthall1",
+        is_important:true,
+        is_public:false
       },
       {
         name: "Ervin Howell",
@@ -105,6 +116,8 @@ export default defineComponent({
         end_date: new Date().toISOString().slice(0, 10),
         category: "Hockey",
         place: "Sporthall1",
+        is_important:true,
+        is_public:false
       },
       {
         name: "Ervin Howell",
@@ -113,6 +126,8 @@ export default defineComponent({
         end_date: new Date().toISOString().slice(0, 10),
         category: "Hockey",
         place: "Sporthall1",
+        is_important:true,
+        is_public:false
       },
       {
         name: "Ervin Howell",
@@ -121,6 +136,8 @@ export default defineComponent({
         end_date: new Date().toISOString().slice(0, 10),
         category: "Hockey",
         place: "Sporthall1",
+        is_important:true,
+        is_public:false
       },
       {
         name: "Ervin Howell",
@@ -129,6 +146,8 @@ export default defineComponent({
         end_date: new Date().toISOString().slice(0, 10),
         category: "Hockey",
         place: "Sporthall1",
+        is_important:true,
+        is_public:false
       },
       {
         name: "Ervin Howell",
@@ -137,6 +156,8 @@ export default defineComponent({
         end_date: new Date().toISOString().slice(0, 10),
         category: "Hockey",
         place: "Sporthall1",
+        is_important:true,
+        is_public:false
       },
     ];
 
@@ -147,6 +168,8 @@ export default defineComponent({
       { key: "end_date", sortable: true },
       { key: "category", sortable: true },
       { key: "place", sortable: true },
+      { key: "is_important", width: 80 },
+      { key: "is_public", width: 80 },
       { key: "actions", width: 80 },
     ];
 
