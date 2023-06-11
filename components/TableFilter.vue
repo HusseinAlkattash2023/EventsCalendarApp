@@ -27,10 +27,12 @@
           filter: true,
           floatingFilter: true,
           sortable: true,
+          editable: true,
         },
+        gridApi: null,
         columnDefs: [
           { field: 'image' , cellRendererFramework: ImageRenderer, headerClass: ['field-border'] },
-          { field: 'name', headerClass: ['field-border'] , maxWidth: 150,},
+          { field: 'name', headerClass: ['field-border'] , maxWidth: 150},
           { field: 'description', headerClass: ['field-border'] ,maxWidth: 150,cellClass: ['cell']},
           { field: 'start_date', headerClass: ['field-border'] ,maxWidth: 150,},
           { field: 'end_date', headerClass: ['field-border'] ,maxWidth: 150,cellClass: ['cell']},
@@ -111,7 +113,6 @@
         ImageRenderer,
       },
       }
-      
     },
   }
   </script>
