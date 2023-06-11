@@ -26,5 +26,7 @@
     "team":"Mannschaft",
     "search":"Suchen...",
     "expired_events":"Abgelaufen Events",
-    "canceled_courses":"Stornierte Kurse"
+    "canceled_courses":"Stornierte Kurse",
+    "add_event":"veranstaltung hinzufügen",
+    "image":"Bild"
 }

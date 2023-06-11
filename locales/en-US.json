@@ -26,5 +26,7 @@
     "team":"Team",
     "search":"Search...",
     "expired_events":"Expired Events",
-    "canceled_courses":"Canceled Courses"
+    "canceled_courses":"Canceled Courses",
+    "add_event":"add event",
+    "image":"image"
 }
