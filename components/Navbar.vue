@@ -22,7 +22,7 @@
         <!-- ================= -->
 
         <!-- for translation -->
-        <select v-model="language" class="ml-2 rounded text-md">
+        <select v-model="language" class="sm:block hidden bg-gray-200 p-1 ml-2 rounded text-md">
           <option
             v-for="item in locales"
             :key="typeof item === 'object' ? item.code : item"
@@ -48,10 +48,10 @@
         id="navbar-sticky"
       >
         <ul
-          class="flex flex-col items-center p-4 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 lg:flex-row lg:space-x-2 lg:mt-0 lg:border-0 lg:bg-white"
+          class="ul flex flex-col items-center p-4 lg:p-0 font-medium rounded-lg bg-gray-50 lg:flex-row lg:space-x-2 lg:mt-0 lg:border-0 lg:bg-white"
         >
           <li
-            class="my-3 lg:my-0"
+            class="my-2 lg:my-0"
             v-for="(item, index) in nav_links"
             :key="index"
           >
@@ -88,7 +88,7 @@
             <div
               id="dropdownNavbar"
               :class="!isOpenDropdown ? 'hidden' : 'block'"
-              class="z-10 border absolute top-14 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44"
+              class="z-10 border absolute top-64 lg:top-14 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44"
             >
               <ul
                 class="py-2 text-sm text-gray-700"
@@ -100,18 +100,31 @@
                   @click="isOpenDropdown = !isOpenDropdown"
                     :to="item.path"
                     :class="index !== 0 ? 'border-t' : 'border-0'"
-                    class="block font-semibold px-4 py-2 hover:bg-red-600 hover:text-white"
+                    class="block text-lg lg:text-base font-medium px-4 py-2 hover:bg-red-600 hover:text-white"
                     >{{ $t(item.display) }}</NuxtLink
                   >
                 </li>
               </ul>
             </div>
           </li>
+          <li>
+            <!-- for translation -->
+        <select v-model="language" class="sm:hidden bg-gray-200 block mt-2 p-1 rounded text-xl">
+          <option
+            v-for="item in locales"
+            :key="typeof item === 'object' ? item.code : item"
+            :value="typeof item === 'object' ? item.code : item"
+          >
+            {{ typeof item === "object" ? item.name : item }}
+          </option>
+        </select>
+        <!-- ====== -->
+          </li>
         </ul>
         <!-- login / register -->
         <button
           type="button"
-          class="text-white flex items-center justify-center mt-5 sm:hidden block bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 lg:mr-0"
+          class="text-white flex items-center justify-center mt-3 sm:hidden block bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 lg:mr-0"
         >
           <NuxtLink to="login" class="text-lg font-light"
             >{{ $t("login") }}/{{ $t("register") }}</NuxtLink
@@ -183,4 +196,11 @@ const language = computed({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+@media only screen and (max-width: 1025px){
+  .ul{
+    margin-top: 20px;
+    border: 1px solid lightgray;
+  }
+}
+</style>

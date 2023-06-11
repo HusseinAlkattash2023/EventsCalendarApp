@@ -36,34 +36,49 @@
           </div>
           <div class="w-full flex flex-col text-left mx-4">
             <label class="text-sm">Von</label>
-            <va-date-input name="birthDay" label="datum auswählen..." />
+            <va-date-input name="birthDay" />
           </div>
           <div class="w-full flex flex-col text-left">
             <label class="text-sm">Bis</label>
-            <va-date-input name="birthDay" label="datum auswählen..." />
+            <va-date-input name="birthDay" />
           </div>
         </div>
         <div class="flex flex-row items-center mt-3">
           <div class="w-full flex flex-col text-left">
             <label class="text-sm">Ort</label>
-            <va-select
+            <!-- <va-select
               v-model="data.value1"
               :options="data.options1"
-            />
+              multiple
+              class="overflow-x-auto w-full"
+            /> -->
+            <v-select
+              v-model="data.value1"
+              :items="data.options1"
+              multiple
+              persistent-hint
+              class="ss"
+            ></v-select>
           </div>
           <div class="w-full mx-4 flex flex-col text-left">
             <label class="text-sm">Sportart</label>
-            <va-select
+            <v-select
               v-model="data.value2"
-              :options="data.options2"
-            />
+              :items="data.options2"
+              multiple
+              persistent-hint
+              class="ss"
+            ></v-select>
           </div>
           <div class="w-full flex flex-col text-left">
             <label class="text-sm">Mannschaft</label>
-            <va-select
+            <v-select
               v-model="data.value3"
-              :options="data.options2"
-            />
+              :items="data.options3"
+              multiple
+              persistent-hint
+              class="ss"
+            ></v-select>
           </div>
         </div>
       </div>
@@ -99,11 +114,21 @@ const data = ref({
   value1: "",
   value2: "",
   value3: "",
-  switch1:false,
-  switch2:false,
-  options1: ["test1", "test2", "test3"],
-  options2: ["test1", "test2", "test3"],
-  options3: ["test1", "test2", "test3"],
+  switch1: false,
+  switch2: false,
+  options1: ["test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9"],
+  options2: ["test1", "test2", "test3", "test4", "test5", "test6"],
+  options3: ["test1", "test2", "test3", "test4", "test5", "test6"],
 });
 </script>
 
+<style scoped>
+.ss{
+  background: white;
+  height: 40px;
+  border-radius: 5px;
+  border:none;
+  color:black;
+  overflow: scroll;
+}
+</style>
