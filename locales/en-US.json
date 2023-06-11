@@ -18,6 +18,13 @@
     "configuration":"Configuration",
     "courses":"Courses",
     "camps":"Camps",
-    "gifts":"Gifts"
-    
+    "gifts":"Gifts",
+    "from":"From",
+    "until":"Until",
+    "place":"Place",
+    "sport":"Sport",
+    "team":"Team",
+    "search":"Search...",
+    "expired_events":"Expired Events",
+    "canceled_courses":"Canceled Courses"
 }

@@ -9,7 +9,7 @@
               type="search"
               id="location-search"
               class="block rounded p-2 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Suchen..."
+              :placeholder="$t('search')"
               required
             />
             <button
@@ -35,23 +35,17 @@
             </button>
           </div>
           <div class="w-full flex flex-col text-left mx-4">
-            <label class="text-sm">Von</label>
+            <label class="text-sm">{{ $t("from") }}</label>
             <va-date-input name="birthDay" />
           </div>
           <div class="w-full flex flex-col text-left">
-            <label class="text-sm">Bis</label>
+            <label class="text-sm">{{ $t("until") }}</label>
             <va-date-input name="birthDay" />
           </div>
         </div>
         <div class="flex flex-row items-center mt-3">
           <div class="w-full flex flex-col text-left">
-            <label class="text-sm">Ort</label>
-            <!-- <va-select
-              v-model="data.value1"
-              :options="data.options1"
-              multiple
-              class="overflow-x-auto w-full"
-            /> -->
+            <label class="text-sm">{{ $t("place") }}</label>
             <v-select
               v-model="data.value1"
               :items="data.options1"
@@ -61,7 +55,7 @@
             ></v-select>
           </div>
           <div class="w-full mx-4 flex flex-col text-left">
-            <label class="text-sm">Sportart</label>
+            <label class="text-sm">{{ $t("sport") }}</label>
             <v-select
               v-model="data.value2"
               :items="data.options2"
@@ -71,7 +65,7 @@
             ></v-select>
           </div>
           <div class="w-full flex flex-col text-left">
-            <label class="text-sm">Mannschaft</label>
+            <label class="text-sm">{{ $t("team") }}</label>
             <v-select
               v-model="data.value3"
               :items="data.options3"
@@ -85,14 +79,14 @@
       <div class="ml-4 mt-5 w-1/4">
         <div class="flex flex-col">
           <va-switch
-            label="Abgelaufen Events"
+            :label="$t('expired_events')"
             size="small"
             class="text-sm"
             v-model="data.switch1"
             color="danger"
           />
           <va-switch
-            label="Stornierte Kurse"
+            :label="$t('canceled_courses')"
             size="small"
             class="text-sm mt-2"
             v-model="data.switch2"

@@ -18,5 +18,13 @@
     "configuration":"Kunfiguration",
     "courses":"Kurse",
     "camps":"Camps",
-    "gifts":"Gutcheine"
+    "gifts":"Gutcheine",
+    "from":"Von",
+    "until":"Bis",
+    "place":"Ort",
+    "sport":"Sportart",
+    "team":"Mannschaft",
+    "search":"Suchen...",
+    "expired_events":"Abgelaufen Events",
+    "canceled_courses":"Stornierte Kurse"
 }
