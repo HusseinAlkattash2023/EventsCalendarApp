@@ -10,7 +10,7 @@
         :frameworkComponents="frameworkComponents"
       />
     </div>
-    <addData/>
+    <addData @custom-event="handleCustomEvent"/>
   </template>
   
   <script>
@@ -85,35 +85,24 @@
         place: "Sporthall1",
         is_important:true,
         is_public:false
-      },
-      {
-        image:"https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=944&q=80",
-        name: "Ervin Howell",
-        description: "Antonette",
-        start_date: new Date().toISOString().slice(0, 10),
-        end_date: new Date().toISOString().slice(0, 10),
-        category: "Hockey",
-        place: "Sporthall1",
-        is_important:true,
-        is_public:false
-      },
-      {
-        image:"https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=944&q=80",
-        name: "Ervin Howell",
-        description: "Antonette",
-        start_date: new Date().toISOString().slice(0, 10),
-        end_date: new Date().toISOString().slice(0, 10),
-        category: "Hockey",
-        place: "Sporthall1",
-        is_important:true,
-        is_public:false
-      },
+      }
     ],
     frameworkComponents: {
         ImageRenderer,
       },
       }
     },
+    methods:{
+      handleCustomEvent(data) {
+      this.rowData.push(data)
+  }
+    },
+    watch: {
+      handleCustomEvent(data) {
+      this.rowData.push(data)
+  }
+}
+
   }
   </script>
   
