@@ -1,12 +1,12 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="items.dialog" persistent width="1024">
+    <v-dialog v-model="dialog" persistent width="1024">
       <template v-slot:activator="{ props }">
-        <v-btn color="primary" v-bind="props">
+        <v-btn class="w-1/2" color="primary" v-bind="props">
           {{ $t("add_event") }}
         </v-btn>
       </template>
-      <form @submit.prevent="sendDataToParent">
+      <form @submit.prevent="handleFormSubmit">
       <v-card>
         <v-card-title class="border-b">
           <span class="text-h5">{{ $t("add_event") }}</span>
@@ -83,7 +83,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="red" prepend-icon="$close" variant="elevated" @click="items.dialog = false">
+          <v-btn color="red" prepend-icon="$close" variant="elevated" @click="handleClose">
             Close
           </v-btn>
           <v-btn color="green" variant="elevated" type="submit">
@@ -99,29 +99,50 @@
 <script>
 export default {
   data(){
-    
     return{
-      items:{
+      url: 'http://localhost:3000/items',
       dialog: false,
-    is_important: false,
-    is_public:false,
-    name:'',
-    description:'',
-    start_date:new Date(),
-    end_date: new Date(),
-    category: '',
-    place: '',
+      items:{
+        id:Number,
+        name: "",
+        description: "",
+        start_date: new Date().toISOString().split('T')[0],
+        end_date: new Date().toISOString().split('T')[0],
+        category: "",
+        place: "",
+        is_important:false,
+        is_public:false,
     }
     }
   },
   methods:{
-  sendDataToParent() {
-    if(this.items){
-    this.$emit('custom-event', this.items);
-    this.items.dialog = false
-    }
-    this.items = {}
-  }
-}
+    handleClose() {
+        this.dialog = false;
+        this.items = {};
+      },
+      getUsers() {
+        fetch(this.url)
+          .then(resp => resp.json())
+          .then(resp => {this.tableData = resp});
+
+      },
+    handleFormSubmit() {
+          fetch(this.url, {
+            method: 'POST',
+            body: JSON.stringify(this.items),
+            headers: {
+              'content-type': 'application/json',
+            },
+          })
+            .then(resp => resp.json())
+            .then(resp => {
+              this.handleClose();
+              this.getUsers();
+            });
+        }
+      },
+      created() {
+      this.getUsers();
+    },
 };
 </script>

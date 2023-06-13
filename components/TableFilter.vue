@@ -7,7 +7,6 @@
         :columnDefs="columnDefs"
         :rowData="rowData"
         :modules="modules"
-        :frameworkComponents="frameworkComponents"
       />
     </div>
     <addData @custom-event="handleCustomEvent"/>
@@ -22,6 +21,7 @@
     components: { AgGridVue , ImageRenderer},
     data () {
       return {
+        url: 'http://localhost:3000/items',
         modules: [ClientSideRowModelModule],
         defaultColDef: {
           filter: true,
@@ -29,90 +29,38 @@
           sortable: true,
           editable: true,
         },
-        gridApi: null,
         columnDefs: [
-          { field: 'image' , cellRendererFramework: ImageRenderer, headerClass: ['field-border'] },
-          { field: 'name', headerClass: ['field-border'] , maxWidth: 150},
-          { field: 'description', headerClass: ['field-border'] ,maxWidth: 150,cellClass: ['cell']},
-          { field: 'start_date', headerClass: ['field-border'] ,maxWidth: 150,},
-          { field: 'end_date', headerClass: ['field-border'] ,maxWidth: 150,cellClass: ['cell']},
-          { field: 'category', headerClass: ['field-border'] ,maxWidth: 150,},
-          { field: 'place', headerClass: ['field-border'] ,maxWidth: 150,cellClass: ['cell']},
-          { field: 'is_important', headerClass: ['field-border'] ,maxWidth: 120,},
-          { field: 'is_public', headerClass: ['field-border'] ,maxWidth: 120,cellClass: ['cell']},
+        { headerName: 'ID', field: 'id',maxWidth: 100,headerClass: ['field-border'],cellClass: ['cell']},
+          { field: 'name', headerClass: ['field-border']},
+          { field: 'description', headerClass: ['field-border'],cellClass: ['cell']},
+          { field: 'start_date', headerClass: ['field-border']},
+          { field: 'end_date', headerClass: ['field-border'],cellClass: ['cell']},
+          { field: 'category', headerClass: ['field-border']},
+          { field: 'place', headerClass: ['field-border'] ,cellClass: ['cell']},
+          { field: 'is_important', headerClass: ['field-border']},
+          { field: 'is_public', headerClass: ['field-border'],cellClass: ['cell']},
         ],
-        rowData: [
-      {
-        image:"https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=944&q=80",
-        name: "Leanne Graham",
-        description: "Bret",
-        start_date: new Date().toISOString().slice(0, 10),
-        end_date: new Date().toISOString().slice(0, 10),
-        category: "Hockey",
-        place: "Sporthall1",
-        is_important:true,
-        is_public:false,
-      },
-      {
-        image:"https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=944&q=80",
-        name: "Ervin Howell",
-        description: "Antonette",
-        start_date: new Date().toISOString().slice(0, 10),
-        end_date: new Date().toISOString().slice(0, 10),
-        category: "Hockey",
-        place: "Sporthall1",
-        is_important:true,
-        is_public:false
-      },
-      {
-        image:"https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=944&q=80",
-        name: "Ervin Howell",
-        description: "Antonette",
-        start_date: new Date().toISOString().slice(0, 10),
-        end_date: new Date().toISOString().slice(0, 10),
-        category: "Hockey",
-        place: "Sporthall1",
-        is_important:true,
-        is_public:false
-      },
-      {
-        image:"https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=944&q=80",
-        name: "Ervin Howell",
-        description: "Antonette",
-        start_date: new Date().toISOString().slice(0, 10),
-        end_date: new Date().toISOString().slice(0, 10),
-        category: "Hockey",
-        place: "Sporthall1",
-        is_important:true,
-        is_public:false
-      }
-    ],
-    frameworkComponents: {
-        ImageRenderer,
-      },
+        rowData:null,
       }
     },
-    methods:{
-      handleCustomEvent(data) {
-      this.rowData.push(data)
-  }
+    created(){
+        fetch(this.url)
+          .then(resp => resp.json())
+          .then(resp => {this.rowData = resp});
     },
-    watch: {
-      handleCustomEvent(data) {
-      this.rowData.push(data)
-  }
-}
-
   }
   </script>
   
   <style lang="scss">
   @import '@vuestic/ag-grid-theme';
   .ag-theme-vuestic{
- 
+    width:100%;
     --ag-row-border-width: 1px;
     --ag-row-border-color: rgb(192, 192, 192);
  
+  }
+  .ag-theme-vuestic .ag-header{
+    font-size:20px;
   }
   .field-border{
     border: 1px solid rgb(192, 192, 192);
