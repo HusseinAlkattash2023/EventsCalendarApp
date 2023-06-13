@@ -98,7 +98,7 @@
             Close
           </v-btn>
           <v-btn color="green" variant="elevated" type="submit">
-            Save
+            {{ items.id ? 'Update' : 'Submit' }}
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -121,7 +121,7 @@
         open:false,
         url: 'http://localhost:3000/items',
         items:{
-        id:Number,
+        id:0,
         name: "",
         description: "",
         start_date: new Date().toISOString().split('T')[0],
@@ -164,8 +164,9 @@
       }
     },
     methods:{
-      onEditClicked() {
-            
+      onEditClicked(oldData) {
+            this.items = oldData
+            this.open = true
         },
       onDeleteClicked(id) {
                   const confirm = window.confirm('Are you sure, you want to delete this row', id);
@@ -178,7 +179,6 @@
       handleClose() {
         this.open = false;
         this.items = {
-          id:Number,
         name: "",
         description: "",
         start_date: new Date().toISOString().split('T')[0],
@@ -195,6 +195,24 @@
           .then(resp => {this.rowData = resp});
       },
       handleFormSubmit() {
+        if (this.items.id) {
+          // updating a user
+          const confirm = window.confirm('Are you sure, you want to update this row ?');
+          if (confirm) {
+            fetch(`${this.url}/${this.items.id}`, {
+              method: 'PUT',
+              body: JSON.stringify(this.items),
+              headers: {
+                'content-type': 'application/json',
+              },
+            })
+              .then(resp => resp.json())
+              .then(resp => {
+                this.handleClose();
+                this.getUsers();
+              });
+          }
+        } else{
           fetch(this.url, {
             method: 'POST',
             body: JSON.stringify(this.items),
@@ -208,6 +226,7 @@
               this.getUsers();
             })
       }
+    }
     },
     created(){
       this.getUsers()

@@ -10,6 +10,28 @@
       "is_important": true,
       "is_public": true,
       "id": 1
+    },
+    {
+      "name": "test 2",
+      "description": "test",
+      "start_date": "2023-06-13",
+      "end_date": "2023-06-13",
+      "category": "Basketball",
+      "place": "Sporthall2",
+      "is_important": true,
+      "is_public": true,
+      "id": 2
+    },
+    {
+      "name": "test 4",
+      "description": "test 3",
+      "start_date": "2023-06-13",
+      "end_date": "2023-06-13",
+      "category": "Hockey",
+      "place": "Sporthall1",
+      "is_important": true,
+      "is_public": true,
+      "id": 3
     }
   ]
 }

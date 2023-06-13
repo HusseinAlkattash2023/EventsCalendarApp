@@ -119,7 +119,7 @@ export default {
     handleClose() {
         this.dialog = false;
         this.items = {
-          id:Number,
+        id:Number,
         name: "",
         description: "",
         start_date: new Date().toISOString().split('T')[0],
