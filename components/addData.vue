@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="dialog" persistent width="1024">
+    <v-dialog v-model="open" persistent width="1024">
       <template v-slot:activator="{ props }">
         <v-btn class="w-1/2" color="primary" v-bind="props">
           {{ $t("add_event") }}
@@ -101,7 +101,7 @@ export default {
   data(){
     return{
       url: 'http://localhost:3000/items',
-      dialog: false,
+      open: false,
       items:{
         id:Number,
         name: "",
@@ -118,7 +118,17 @@ export default {
   methods:{
     handleClose() {
         this.dialog = false;
-        this.items = {};
+        this.items = {
+          id:Number,
+        name: "",
+        description: "",
+        start_date: new Date().toISOString().split('T')[0],
+        end_date: new Date().toISOString().split('T')[0],
+        category: "",
+        place: "",
+        is_important:false,
+        is_public:false,
+        };
       },
       getUsers() {
         fetch(this.url)
