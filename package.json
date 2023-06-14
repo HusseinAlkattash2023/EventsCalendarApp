@@ -17,6 +17,7 @@
     "sass": "^1.63.2"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.4.11",
     "@vuestic/ag-grid-theme": "^1.1.4",
     "@vuestic/nuxt": "^1.0.14"
   }
