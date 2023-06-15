@@ -1,20 +1,20 @@
 {
   "items": [
     {
-      "name": "jjjcccccccccc",
-      "description": "jjjj",
-      "start_date": "2023-06-14",
-      "end_date": "2023-06-14",
-      "category": "Hockey",
-      "place": "Sporthall1",
-      "is_important": false,
-      "is_public": true,
-      "id": 1
-    },
-    {
       "id": 2,
       "name": "test 2",
       "description": "test",
+      "start_date": "2023-06-14",
+      "end_date": "2023-06-14",
+      "category": "Basketball",
+      "place": "Sporthall1",
+      "is_important": true,
+      "is_public": true
+    },
+    {
+      "id": 3,
+      "name": "test test",
+      "description": "this is test",
       "start_date": "2023-06-14",
       "end_date": "2023-06-14",
       "category": "Basketball",

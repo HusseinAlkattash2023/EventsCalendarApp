@@ -27,6 +27,15 @@
     "search":"Suchen...",
     "expired_events":"Abgelaufen Events",
     "canceled_courses":"Stornierte Kurse",
-    "add_event":"veranstaltung hinzufügen",
-    "image":"Bild"
+    "add_event":"Veranstaltung Hinzufügen",
+    "image":"Bild",
+    "name":"name",
+    "description":"Beschreibung",
+    "start_date":"Startdatum",
+    "end_date":"Endtermin",
+    "category":"Kategorie",
+    "is_important":"ist wichtig",
+    "is_public":"ist öffentlich",
+    "update_events":"Veranstaltung Aktualisieren",
+    "enter":"Eingeben"
 }

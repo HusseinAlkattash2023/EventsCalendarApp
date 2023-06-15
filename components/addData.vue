@@ -2,14 +2,14 @@
   <v-row justify="center">
     <v-dialog  v-model="open" persistent width="1024">
       <template v-slot:activator="{ }">
-        <v-btn class="w-1/2" color="primary" @click="IsOpen">
+        <v-btn class="w-1/2 mt-8" prepend-icon="$plus" color="primary" @click="IsOpen">
           {{ $t("add_event") }}
         </v-btn>
       </template>
       <form @submit.prevent="handleFormSubmit">
-      <v-card>
+      <v-card class="add_data">
         <v-card-title class="border-b">
-          <span class="text-h5">{{ $t("add_event") }}</span>
+          <span class="text-h5">{{ items.id ? $t("update_events") : $t("add_event")}}</span>
         </v-card-title>
         <v-card-text>
           <v-container>
@@ -17,7 +17,7 @@
               <v-col cols="12" sm="6">
                 <v-text-field
                 v-model="items.name"
-                  label="Enter name*"
+                  label="Enter Name*"
                   required
                   :rules="[(v) => !!v || 'Required']"
                 ></v-text-field>
@@ -81,7 +81,7 @@
             </v-row>
           </v-container>
         </v-card-text>
-        <v-card-actions>
+        <v-card-actions class="border-t-2">
           <v-spacer></v-spacer>
           <v-btn color="red" prepend-icon="$close" variant="elevated" @click="handleClose">
             Close
@@ -129,3 +129,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.add_data{
+  height:480px;
+  overflow-y:auto;
+}
+</style>

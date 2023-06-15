@@ -27,6 +27,15 @@
     "search":"Search...",
     "expired_events":"Expired Events",
     "canceled_courses":"Canceled Courses",
-    "add_event":"add event",
-    "image":"image"
+    "add_event":"Add Event",
+    "image":"image",
+    "description":"description",
+    "name":"name",
+    "start_date":"start date",
+    "end_date":"start date",
+    "category":"category",
+    "is_important":"is important",
+    "is_public":"is public",
+    "update_events":"Update Event",
+    "enter":"Enter"
 }

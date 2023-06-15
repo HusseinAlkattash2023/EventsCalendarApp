@@ -1,9 +1,9 @@
 <template>
-  <div class="w-full bg-black h-52 text-white p-4 text-3xl">
+  <div class="w-full bg-black lg:h-52 md:h-78 text-white p-4 text-3xl">
     <h2 class="text-left">{{ $t("events") }}</h2>
-    <form class="flex flex-row items-center">
-      <div class="w-3/4 flex flex-col justify-center">
-        <div class="flex flex-row items-center">
+    <form class="flex lg:flex-row flex-col items-center">
+      <div class="lg:w-3/4 w-full flex flex-col justify-center">
+        <div class="flex md:flex-row flex-col items-center">
           <div class="relative w-full mt-5">
             <input
               type="search"
@@ -34,18 +34,18 @@
               <span class="sr-only">Search</span>
             </button>
           </div>
-          <div class="w-full flex flex-col text-left mx-4">
-            <label class="text-sm">{{ $t("from") }}</label>
+          <div class="w-full flex flex-col md:my-0 my-2 text-left mx-4">
+            <label class="text-base">{{ $t("from") }}</label>
             <va-date-input name="birthDay" />
           </div>
           <div class="w-full flex flex-col text-left">
-            <label class="text-sm">{{ $t("until") }}</label>
+            <label class="text-base">{{ $t("until") }}</label>
             <va-date-input name="birthDay" />
           </div>
         </div>
-        <div class="flex flex-row items-center mt-3">
+        <div class="flex md:flex-row flex-col items-center">
           <div class="w-full flex flex-col text-left">
-            <label class="text-sm">{{ $t("place") }}</label>
+            <label class="text-base">{{ $t("place") }}</label>
             <v-select
               v-model="data.value1"
               :items="data.options1"
@@ -54,8 +54,8 @@
               class="ss"
             ></v-select>
           </div>
-          <div class="w-full mx-4 flex flex-col text-left">
-            <label class="text-sm">{{ $t("sport") }}</label>
+          <div class="w-full mx-4 flex flex-col text-left my-2 md:my-0">
+            <label class="text-base">{{ $t("sport") }}</label>
             <v-select
               v-model="data.value2"
               :items="data.options2"
@@ -65,7 +65,7 @@
             ></v-select>
           </div>
           <div class="w-full flex flex-col text-left">
-            <label class="text-sm">{{ $t("team") }}</label>
+            <label class="text-base">{{ $t("team") }}</label>
             <v-select
               v-model="data.value3"
               :items="data.options3"
@@ -76,19 +76,19 @@
           </div>
         </div>
       </div>
-      <div class="ml-4 mt-5 w-1/4">
-        <div class="flex flex-col">
+      <div class="ml-4 mt-5 lg:w-1/4 w-full">
+        <div class="flex lg:flex-col items-center justify-center lg:items-start lg:justify-center">
           <va-switch
             :label="$t('expired_events')"
             size="small"
-            class="text-sm"
+            class="text-base sm:mx-3 lg:mx-0 mx-1 lg:mx-0"
             v-model="data.switch1"
             color="danger"
           />
           <va-switch
             :label="$t('canceled_courses')"
             size="small"
-            class="text-sm mt-2"
+            class="text-base lg:mt-2 lg:mx-0 mx-1 sm:mx-3 lg:mx-0"
             v-model="data.switch2"
             color="danger"
           />
@@ -110,7 +110,7 @@ const data = ref({
   value3: "",
   switch1: false,
   switch2: false,
-  options1: ["test1", "test2", "test3", "test4", "test5", "test6", "test7", "test8", "test9"],
+  options1: ["test1", "test2", "test3", "test4", "test5", "test6"],
   options2: ["test1", "test2", "test3", "test4", "test5", "test6"],
   options3: ["test1", "test2", "test3", "test4", "test5", "test6"],
 });
