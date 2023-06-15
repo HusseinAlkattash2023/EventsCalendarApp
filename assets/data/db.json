@@ -21,6 +21,17 @@
       "place": "Sporthall1",
       "is_important": true,
       "is_public": true
+    },
+    {
+      "id": 4,
+      "name": "teet",
+      "description": "yee",
+      "start_date": "2023-06-15",
+      "end_date": "2023-06-15",
+      "category": "Hockey",
+      "place": "Sporthall1",
+      "is_important": false,
+      "is_public": true
     }
   ]
 }

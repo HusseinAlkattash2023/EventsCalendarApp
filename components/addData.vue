@@ -111,13 +111,13 @@ export default {
         handleClose:"handleClose",
         onEditClicked:"onEditClicked",
         onDeleteClicked:"onDeleteClicked",
-        getUsers:"getUsers",
+        getEvents:"getEvents",
         handleFormSubmit:"handleFormSubmit",
         IsOpen:"IsOpen"
       }),
   },
   created(){
-    this.getUsers();
+    this.getEvents();
   },
   computed:{
     ...mapState(useMainStore,{

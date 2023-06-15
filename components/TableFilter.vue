@@ -59,12 +59,12 @@
         ,{
           onEditClicked:"onEditClicked",
           onDeleteClicked:"onDeleteClicked",
-          getUsers:"getUsers",
+          getEvents:"getEvents",
           IsOpen:"IsOpen"
         }),
     },
     created(){
-      this.getUsers();
+      this.getEvents();
     },
     computed:{
       ...mapState(useMainStore,{

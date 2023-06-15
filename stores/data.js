@@ -36,7 +36,7 @@ export const useMainStore = defineStore('main', {
             is_public:false,
             };
         },
-        getUsers() {
+        getEvents() {
             fetch(this.url)
                 .then(resp => resp.json())
                 .then(resp => {this.rowData = resp});
@@ -53,7 +53,7 @@ export const useMainStore = defineStore('main', {
             if (confirm) {
             fetch(`${this.url}/${id}`, { method: 'DELETE' })
                 .then(resp => resp.json())
-                .then(resp => this.getUsers());
+                .then(resp => this.getEvents());
         }
     },
     handleFormSubmit() {
@@ -71,7 +71,7 @@ export const useMainStore = defineStore('main', {
               .then(resp => resp.json())
               .then(resp => {
                 this.handleClose();
-                this.getUsers();
+                this.getEvents();
               });
           }
         } else{
@@ -85,7 +85,7 @@ export const useMainStore = defineStore('main', {
             .then(resp => resp.json())
             .then(resp => {
               this.handleClose();
-              this.getUsers();
+              this.getEvents();
             })
       }
     }
