@@ -1,6 +1,6 @@
 <template>
     <addData/>
-    <div style="height: 400px; width: 100%;" class="border mb-6 mt-12 mx-auto">
+    <div style="height: 60vh; width: 100%;" class="border mb-6 mt-12 mx-auto">
       <ag-grid-vue
         class="ag-theme-vuestic"
         style="width: 100%; height: 100%;"
@@ -31,20 +31,20 @@
         },
 
         columnDefs: [
-        { headerName: 'ID', field: 'id',maxWidth: 100,headerClass: ['field-border'],cellClass: ['cell']},
-          { headerName:this.$t('name'), field: 'name', headerClass: ['field-border']},
-          { headerName:this.$t('description'), field: 'description', headerClass: ['field-border'],cellClass: ['cell']},
-          { headerName: 'start date', field: 'start_date', headerClass: ['field-border']},
-          { headerName: 'end date', field: 'end_date', headerClass: ['field-border'],cellClass: ['cell']},
-          { headerName: 'category', field: 'category', headerClass: ['field-border']},
-          { headerName: 'place', field: 'place', headerClass: ['field-border'] ,cellClass: ['cell']},
-          { headerName: 'is important' , field: 'is_important', headerClass: ['field-border']},
-          { headerName: 'is public', field: 'is_public', headerClass: ['field-border'],cellClass: ['cell']},
+        { headerName: 'ID', field: 'id',width: "100%",headerClass: 'field-border',cellClass: ['cell'] , cellStyle: { borderRight: "2px solid rgb(192, 192, 192)"}},
+          { headerName:this.$t('name'),width: "120%", field: 'name', headerClass: ['field-border'],cellStyle: { borderRight: "2px solid rgb(192, 192, 192)" }},
+          { headerName:this.$t('description'),width: "150%", field: 'description', headerClass: ['field-border'],cellClass: ['cell'],cellStyle: { borderRight: "2px solid rgb(192, 192, 192)" }},
+          { headerName: 'start date', field: 'start_date',width: "130%", headerClass: ['field-border'],cellStyle: { borderRight: "2px solid rgb(192, 192, 192)"}},
+          { headerName: 'end date', field: 'end_date',width: "130%", headerClass: ['field-border'],cellClass: ['cell'],cellStyle: { borderRight: "2px solid rgb(192, 192, 192)"}},
+          { headerName: 'category', field: 'category',width: "130%", headerClass: ['field-border'],cellStyle: { borderRight: "2px solid rgb(192, 192, 192)"}},
+          { headerName: 'place', field: 'place',width: "130%", headerClass: ['field-border'] ,cellClass: ['cell'],cellStyle: { borderRight: "2px solid rgb(192, 192, 192)"}},
+          { headerName: 'is important' , field: 'is_important',width: "130%", headerClass: ['field-border'],cellStyle: { borderRight: "2px solid rgb(192, 192, 192)"}},
+          { headerName: 'is public', field: 'is_public',width: "130%", headerClass: ['field-border'],cellClass: ['cell'],cellStyle: { borderRight: "2px solid rgb(192, 192, 192)"}},
           {
             headerName: 'Actions',
             field: 'id',
             cellRendererFramework: ActionCellRenderer,
-            width: 250,
+            width:"250%",
             cellRendererParams: {
             onEditClicked: this.onEditClicked,
             onDeleteClicked: this.onDeleteClicked,
@@ -77,17 +77,30 @@
   <style lang="scss">
   @import '@vuestic/ag-grid-theme';
   .ag-theme-vuestic{
-    width:100%;
+    width:1000px;
     --ag-row-border-width: 1px;
     --ag-row-border-color: rgb(192, 192, 192);
+
+
  
   }
   .field-border {
-    border: 1px solid rgb(192, 192, 192);
+    border: 1px solid white;
     margin:auto;
+    background-color:#dc2626;
+    color:white;
   }
-  .ag-header-cell {
-  font-size: 36px;
+  .field-border:hover{
+    background-color: #dc2626 !important;
+    cursor: default !important;
+  }
+  .field-border .ag-header-cell-label {
+  font-size: 16px;
+  display:flex;
+  justify-content: center;
+  // text-align:center;
+  // display: grid;
+  // place-items: center;
 }
   .cell{
     background-color:#ecf0f1;

@@ -1,7 +1,7 @@
 <template>
   <div class="w-full bg-black lg:h-52 md:h-78 text-white p-4 text-3xl">
     <h2 class="text-left">{{ $t("events") }}</h2>
-    <form class="flex lg:flex-row flex-col items-center">
+    <form @submit.prevent="" class="flex lg:flex-row flex-col items-center">
       <div class="lg:w-3/4 w-full flex flex-col justify-center">
         <div class="flex md:flex-row flex-col items-center">
           <div class="relative w-full mt-5">
@@ -14,7 +14,7 @@
             />
             <button
               type="submit"
-              class="absolute top-0 right-0 p-2 text-sm font-medium text-white bg-gray-500 rounded-r-lg border border-gray-500 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300"
+              class="absolute top-0 right-0 p-2 text-sm font-medium text-white bg-gray-500 rounded-r-sm border border-gray-500 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-300"
             >
               <svg
                 aria-hidden="true"
@@ -36,11 +36,11 @@
           </div>
           <div class="w-full flex flex-col md:my-0 my-2 text-left mx-4">
             <label class="text-base">{{ $t("from") }}</label>
-            <va-date-input name="birthDay" />
+            <va-date-input name="birthDay" stateful clearable />
           </div>
           <div class="w-full flex flex-col text-left">
             <label class="text-base">{{ $t("until") }}</label>
-            <va-date-input name="birthDay" />
+            <va-date-input name="birthDay" stateful clearable/>
           </div>
         </div>
         <div class="flex md:flex-row flex-col items-center">
@@ -50,9 +50,16 @@
               v-model="data.value1"
               :items="data.options1"
               multiple
-              persistent-hint
               class="ss"
-            ></v-select>
+              variant=""
+              density="compact"
+            >
+              <template v-slot:selection="{ index }">
+                <span v-if="index === 0" class="text-base">
+                  ({{ data.value1.length }} options)
+                </span>
+              </template>
+            </v-select>
           </div>
           <div class="w-full mx-4 flex flex-col text-left my-2 md:my-0">
             <label class="text-base">{{ $t("sport") }}</label>
@@ -60,9 +67,16 @@
               v-model="data.value2"
               :items="data.options2"
               multiple
-              persistent-hint
               class="ss"
-            ></v-select>
+              variant=""
+              density="compact"
+            >
+              <template v-slot:selection="{ index }">
+                <span v-if="index === 0" class="text-base">
+                  ({{ data.value2.length }} options)
+                </span>
+              </template>
+            </v-select>
           </div>
           <div class="w-full flex flex-col text-left">
             <label class="text-base">{{ $t("team") }}</label>
@@ -70,14 +84,23 @@
               v-model="data.value3"
               :items="data.options3"
               multiple
-              persistent-hint
               class="ss"
-            ></v-select>
+              variant=""
+              density="compact"
+            >
+              <template v-slot:selection="{ index }">
+                <span v-if="index === 0" class="text-base">
+                  ({{ data.value3.length }} options)
+                </span>
+              </template>
+            </v-select>
           </div>
         </div>
       </div>
       <div class="ml-4 mt-5 lg:w-1/4 w-full">
-        <div class="flex lg:flex-col items-center justify-center lg:items-start lg:justify-center">
+        <div
+          class="flex lg:flex-col items-center justify-center lg:items-start lg:justify-center"
+        >
           <va-switch
             :label="$t('expired_events')"
             size="small"
@@ -105,9 +128,10 @@
 
 <script setup>
 const data = ref({
-  value1: "",
-  value2: "",
-  value3: "",
+  selectedDate: null,
+  value1: [],
+  value2: [],
+  value3: [],
   switch1: false,
   switch2: false,
   options1: ["test1", "test2", "test3", "test4", "test5", "test6"],
@@ -117,12 +141,11 @@ const data = ref({
 </script>
 
 <style scoped>
-.ss{
+.ss {
   background: white;
   height: 40px;
   border-radius: 5px;
-  border:none;
-  color:black;
-  overflow: scroll;
+  border: none;
+  color: black;
 }
 </style>
