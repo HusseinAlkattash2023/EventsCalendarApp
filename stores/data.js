@@ -58,9 +58,7 @@ export const useMainStore = defineStore('main', {
     },
     handleFormSubmit() {
         if (this.items.id) {
-          // updating a user
-          const confirm = window.confirm('Are you sure, you want to update this row ?');
-          if (confirm) {
+          // updating a event
             fetch(`${this.url}/${this.items.id}`, {
               method: 'PUT',
               body: JSON.stringify(this.items),
@@ -73,8 +71,8 @@ export const useMainStore = defineStore('main', {
                 this.handleClose();
                 this.getEvents();
               });
-          }
         } else{
+          //add new event
           fetch(this.url, {
             method: 'POST',
             body: JSON.stringify(this.items),

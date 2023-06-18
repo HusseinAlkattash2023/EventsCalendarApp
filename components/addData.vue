@@ -2,7 +2,7 @@
   <v-row justify="center">
     <v-dialog  v-model="open" persistent width="1024">
       <template v-slot:activator="{ }">
-        <v-btn class="w-1/2 mt-8" prepend-icon="$plus" color="primary" @click="IsOpen">
+        <v-btn class="w-80 mt-8 btn" size="large"  height="44" prepend-icon="$plus" color="blue" @click="IsOpen">
           {{ $t("add_event") }}
         </v-btn>
       </template>
@@ -134,5 +134,10 @@ export default {
 .add_data{
   height:480px;
   overflow-y:auto;
+}
+.btn{
+  font-weight:bold;
+  position:absolute;
+  right:20px;
 }
 </style>
