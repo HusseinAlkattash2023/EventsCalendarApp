@@ -6,7 +6,7 @@
           {{ $t("add_event") }}
         </v-btn>
       </template>
-      <form @submit.prevent="handleFormSubmit">
+      <form ref="form" @submit.prevent="handleFormSubmit">
       <v-card class="add_data">
         <v-card-title class="border-b">
           <span class="text-h5">{{ items.id ? $t("update_events") : $t("add_event")}}</span>
@@ -18,8 +18,8 @@
                 <v-text-field
                 v-model="items.name"
                   label="Enter Name*"
-                  required
                   :rules="[(v) => !!v || 'Required']"
+                  required
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
@@ -51,7 +51,7 @@
                   :items="['Hockey', 'Basketball']"
                   label="Select Category*"
                   required
-                  :rules="[(v) => !!v || 'Required']"
+                  :rules="[requiredRule]"
                   v-model="items.category"
                 ></v-select>
               </v-col>
@@ -59,9 +59,9 @@
                 <v-select
                   :items="['Sporthall1', 'Sporthall2']"
                   label="Select Place*"
-                  required
-                  :rules="[(v) => !!v || 'Required']"
                   v-model="items.place"
+                  :rules="[requiredRule]"
+                  required
                 ></v-select>
               </v-col>
               <v-col cols="12" sm="6">
@@ -69,6 +69,7 @@
                   v-model="items.is_important"
                   true-label="Is Important:True"
                   false-label="Is Important:False"
+                  required
                 />
               </v-col>
               <v-col cols="12" sm="6">
@@ -76,6 +77,7 @@
                   v-model="items.is_public"
                   true-label="Is Public:True"
                   false-label="Is Public:False"
+                  required
                 />
               </v-col>
             </v-row>
@@ -115,6 +117,9 @@ export default {
         handleFormSubmit:"handleFormSubmit",
         IsOpen:"IsOpen"
       }),
+    requiredRule(value) {
+      return !!value || 'This field is required';
+    },
   },
   created(){
     this.getEvents();

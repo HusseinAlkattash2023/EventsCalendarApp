@@ -13,13 +13,13 @@ export default defineNuxtConfig({
       {
         code: "en-US",
         iso: "en-US",
-        name: "Eg",
+        name: "English",
         file: "en-US.json",
       },
       {
         code: "gr-GR",
         iso: "gr-GR",
-        name:"Gr",
+        name:"Germany",
         file: "gr-GR.json",
       },
     ],

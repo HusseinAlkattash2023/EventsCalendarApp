@@ -1,48 +1,15 @@
 {
   "items": [
     {
-      "id": 3,
-      "name": "omar mustawy ",
-      "description": "this is test",
-      "start_date": "2023-06-14",
-      "end_date": "2023-06-14",
-      "category": "Basketball",
-      "place": "Sporthall1",
-      "is_important": true,
-      "is_public": true
-    },
-    {
-      "id": 4,
-      "name": "test",
-      "description": "test",
-      "start_date": "2023-06-15",
-      "end_date": "2023-06-15",
+      "name": "dddddddddddddddd",
+      "description": "fffffffffff",
+      "start_date": "2023-06-19",
+      "end_date": "2023-06-19",
       "category": "Hockey",
-      "place": "Sporthall2",
+      "place": "Sporthall1",
       "is_important": false,
-      "is_public": true
-    },
-    {
-      "id": 5,
-      "name": "test",
-      "description": "test",
-      "start_date": "2023-06-18",
-      "end_date": "2023-06-18",
-      "category": "Basketball",
-      "place": "Sporthall2",
-      "is_important": true,
-      "is_public": false
-    },
-    {
-      "name": "test1",
-      "description": "test1",
-      "start_date": "2023-06-18",
-      "end_date": "2023-06-18",
-      "category": "Hockey",
-      "place": "Sporthall1",
-      "is_important": true,
-      "is_public": true,
-      "id": 6
+      "is_public": false,
+      "id": 1
     }
   ]
 }

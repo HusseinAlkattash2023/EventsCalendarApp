@@ -4,6 +4,8 @@ export const useMainStore = defineStore('main', {
     // a function that returns a fresh state
     state: () => ({
     open: false,
+    errors:{},
+    searchQuery:'',
     url: 'http://localhost:3000/items',
     rowData:null,
     items:{
@@ -12,8 +14,8 @@ export const useMainStore = defineStore('main', {
         description: "",
         start_date: new Date().toISOString().split('T')[0],
         end_date: new Date().toISOString().split('T')[0],
-        category: "",
-        place: "",
+        category: null,
+        place: null,
         is_important:false,
         is_public:false,
     },
@@ -25,6 +27,7 @@ export const useMainStore = defineStore('main', {
     actions: {
         handleClose() {
             this.open = false;
+            this.errors = {};
             this.items = {
             name: "",
             description: "",
@@ -48,13 +51,13 @@ export const useMainStore = defineStore('main', {
         IsOpen(){
             this.open = true
         },
+        showModal_(){
+          this.showModal = !this.showModal
+        },
         onDeleteClicked(id) {
-            const confirm = window.confirm('Are you sure, you want to delete this row', id);
-            if (confirm) {
             fetch(`${this.url}/${id}`, { method: 'DELETE' })
                 .then(resp => resp.json())
                 .then(resp => this.getEvents());
-        }
     },
     handleFormSubmit() {
         if (this.items.id) {
@@ -73,19 +76,44 @@ export const useMainStore = defineStore('main', {
               });
         } else{
           //add new event
-          fetch(this.url, {
-            method: 'POST',
-            body: JSON.stringify(this.items),
-            headers: {
-              'content-type': 'application/json',
-            },
-          })
-            .then(resp => resp.json())
-            .then(resp => {
-              this.handleClose();
-              this.getEvents();
+            fetch(this.url, {
+              method: 'POST',
+              body: JSON.stringify(this.items),
+              headers: {
+                'content-type': 'application/json',
+              },
             })
+              .then(resp => resp.json())
+              .then(resp => {
+                this.handleClose();
+                this.getEvents();
+              })
       }
+    },
+    //filter data by search
+      filterData() {
+        if(this.searchQuery == ''){
+          this.getEvents()
+        }else{
+          this.rowData = this.rowData.filter((item)=> {
+            return item.name.toLowerCase().includes(this.searchQuery.toLowerCase());
+          });
+        }
+    },
+    validation(){
+      if(!this.items.name){
+        this.errors.name = "this field is required"
+      }
+      if(!this.items.description){
+        this.errors.description = "this field is required"
+      }
+      if(!this.items.category){
+        this.errors.category = "this field is required"
+      }
+      if(!this.items.place){
+        this.errors.place = "this field is required"
+      }
+      return this.errors;
     }
     },
 })

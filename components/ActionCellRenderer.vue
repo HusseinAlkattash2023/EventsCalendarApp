@@ -14,7 +14,7 @@
       deleteClicked() {
         this.params.onDeleteClicked(this.params.value);
       },
-    },
+    }
   };
   </script>
   

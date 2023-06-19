@@ -7,6 +7,8 @@
           <div class="relative w-full mt-5">
             <input
               type="search"
+              @input="filterData"
+              v-model="searchQuery"
               id="location-search"
               class="block rounded p-2 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
               :placeholder="$t('search')"
@@ -116,10 +118,13 @@
             color="danger"
           />
         </div>
-        <div class="mt-3">
-          <va-button icon="replay" class="w-full" color="secondary"
-            >Filter</va-button
+        <div class="mt-5">
+          <button
+            class="bg-gray-500 w-full flex flex-row items-center justify-center rounded h-10"
           >
+            <i class="material-icons text-2xl">replay</i>
+            Filter
+          </button>
         </div>
       </div>
     </form>
@@ -127,7 +132,23 @@
 </template>
 
 <script setup>
+import { useMainStore } from "@/stores/data";
+import { storeToRefs } from "pinia";
+
+const mainStore = useMainStore();
+
+const { searchQuery } = storeToRefs(mainStore);
+
+const filterData = () => {
+  mainStore.filterData();
+};
+
+onMounted(() => {
+  mainStore.filterData();
+});
+
 const data = ref({
+  date:'',
   selectedDate: null,
   value1: [],
   value2: [],
