@@ -6,28 +6,28 @@
           {{ $t("add_event") }}
         </v-btn>
       </template>
-      <form ref="form" @submit.prevent="handleFormSubmit">
       <v-card class="add_data">
         <v-card-title class="border-b">
           <span class="text-h5">{{ items.id ? $t("update_events") : $t("add_event")}}</span>
         </v-card-title>
         <v-card-text>
+          <v-form ref="form"> 
           <v-container>
             <v-row>
               <v-col cols="12" sm="6">
                 <v-text-field
-                v-model="items.name"
+                  v-model="items.name"
                   label="Enter Name*"
-                  :rules="[(v) => !!v || 'Required']"
+                  :rules="[v => !!v || 'Name is required']"
                   required
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
                 <v-text-field
-                  label="Enter description*"
-                  required
-                  :rules="[(v) => !!v || 'Required']"
                   v-model="items.description"
+                  label="Enter description*"
+                  :rules="[v => !!v || 'Description is required']"
+                  required
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
@@ -49,10 +49,10 @@
               <v-col cols="12" sm="6">
                 <v-select
                   :items="['Hockey', 'Basketball']"
-                  label="Select Category*"
-                  required
-                  :rules="[requiredRule]"
                   v-model="items.category"
+                  label="Select Category*"
+                  :rules="[v => !!v || 'Please select a category']"
+                  required
                 ></v-select>
               </v-col>
               <v-col cols="12" sm="6">
@@ -60,7 +60,7 @@
                   :items="['Sporthall1', 'Sporthall2']"
                   label="Select Place*"
                   v-model="items.place"
-                  :rules="[requiredRule]"
+                  :rules="[v => !!v || 'Please select a place']"
                   required
                 ></v-select>
               </v-col>
@@ -82,18 +82,18 @@
               </v-col>
             </v-row>
           </v-container>
+        </v-form>
         </v-card-text>
         <v-card-actions class="border-t-2">
           <v-spacer></v-spacer>
           <v-btn color="red" prepend-icon="$close" variant="elevated" @click="handleClose">
             Close
           </v-btn>
-          <v-btn color="green" variant="elevated" type="submit">
+          <v-btn color="green" variant="elevated" type="submit" @click="validate">
             {{ items.id ? 'Update' : 'Submit' }}
           </v-btn>
         </v-card-actions>
       </v-card>
-    </form>
     </v-dialog>
   </v-row>
 </template>
@@ -117,6 +117,13 @@ export default {
         handleFormSubmit:"handleFormSubmit",
         IsOpen:"IsOpen"
       }),
+      async validate () {
+        const { valid } = await this.$refs.form.validate()
+
+        if (valid){
+          this.handleFormSubmit();
+        }
+      },
     requiredRule(value) {
       return !!value || 'This field is required';
     },
@@ -137,7 +144,7 @@ export default {
 
 <style scoped>
 .add_data{
-  height:480px;
+  height:490px;
   overflow-y:auto;
 }
 .btn{

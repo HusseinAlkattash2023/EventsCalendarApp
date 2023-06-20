@@ -1,28 +1,13 @@
 <template>
-    <main class="h-screen  text-center mt-28">
-      <h1>{{ $t("about") }}</h1>
-    </main>
-    <va-button @click="showModal = true">
-    Show modal
-  </va-button>
+  <div class="h-screen  text-center mt-28">
+      {{ $t("about") }}
+  </div>
+</template>
 
-  <va-modal
-    v-model="showModal"
-     
-    blur
-  />
-  </template>
+<script setup>
 
-<script>
-
-export default {
-  data() {
-    return {
-      showModal: false
-    };
-  },
-};
 </script>
-<style scoped>
+
+<style lang="scss" scoped>
 
 </style>

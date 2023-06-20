@@ -4,7 +4,6 @@ export const useMainStore = defineStore('main', {
     // a function that returns a fresh state
     state: () => ({
     open: false,
-    errors:{},
     searchQuery:'',
     url: 'http://localhost:3000/items',
     rowData:null,
@@ -99,21 +98,6 @@ export const useMainStore = defineStore('main', {
             return item.name.toLowerCase().includes(this.searchQuery.toLowerCase());
           });
         }
-    },
-    validation(){
-      if(!this.items.name){
-        this.errors.name = "this field is required"
-      }
-      if(!this.items.description){
-        this.errors.description = "this field is required"
-      }
-      if(!this.items.category){
-        this.errors.category = "this field is required"
-      }
-      if(!this.items.place){
-        this.errors.place = "this field is required"
-      }
-      return this.errors;
     }
     },
 })

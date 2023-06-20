@@ -1,7 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    "@pinia/nuxt", '@nuxtjs/tailwindcss','@nuxtjs/i18n', "@vuestic/nuxt", '@invictus.codes/nuxt-vuetify' 
+    "@pinia/nuxt", 
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/i18n', 
+    "@vuestic/nuxt", 
+    '@invictus.codes/nuxt-vuetify',
   ],
 
   i18n:{

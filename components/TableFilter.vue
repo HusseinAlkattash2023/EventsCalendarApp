@@ -65,7 +65,6 @@
           IsOpen:"IsOpen"
         }),
         onGridSizeChanged(params) {
-      console.log(params.clientWidth);
       if (params.clientWidth > 500) {
         this.gridApi.sizeColumnsToFit();
       } else {
@@ -114,16 +113,9 @@
   font-size: 16px;
   display:flex;
   justify-content: center;
-  // text-align:center;
-  // display: grid;
-  // place-items: center;
 }
   .cell{
     background-color:#ecf0f1;
   }
-  // .test{
-  //   position:relative;
-  //   top:100px;
-  // }
   </style>
   

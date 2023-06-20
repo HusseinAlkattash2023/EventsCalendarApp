@@ -1,15 +1,3 @@
 {
-  "items": [
-    {
-      "name": "dddddddddddddddd",
-      "description": "fffffffffff",
-      "start_date": "2023-06-19",
-      "end_date": "2023-06-19",
-      "category": "Hockey",
-      "place": "Sporthall1",
-      "is_important": false,
-      "is_public": false,
-      "id": 1
-    }
-  ]
+  "items": []
 }
