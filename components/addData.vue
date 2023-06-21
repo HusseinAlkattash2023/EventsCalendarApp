@@ -66,6 +66,7 @@
               </v-col>
               <v-col cols="12" sm="6">
                 <va-switch
+                  class="border-2 w-full h-14 px-2 pt-3"
                   v-model="items.is_important"
                   true-label="Is Important:True"
                   false-label="Is Important:False"
@@ -74,6 +75,7 @@
               </v-col>
               <v-col cols="12" sm="6">
                 <va-switch
+                class="border-2 w-full h-14 pt-3 px-2 flex items-center justify-center"
                   v-model="items.is_public"
                   true-label="Is Public:True"
                   false-label="Is Public:False"
@@ -144,7 +146,7 @@ export default {
 
 <style scoped>
 .add_data{
-  height:490px;
+  height:520px;
   overflow-y:auto;
 }
 .btn{
